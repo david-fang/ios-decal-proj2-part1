@@ -1,5 +1,5 @@
 //
-//  imageCollectionVieCell.swift
+//  imageCollectionViewCell.swift
 //  snapChatProject
 //
 //  Created by Akilesh Bapu on 2/28/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class imageCollectionVieCell: UICollectionViewCell {
+class ImageCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var image: UIImageView!
 
