@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		072A19581E6A08A2002FB466 /* PostFeedsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072A19571E6A08A2002FB466 /* PostFeedsTableViewController.swift */; };
 		072A195C1E6A0E59002FB466 /* ImageFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072A195B1E6A0E59002FB466 /* ImageFeedTableViewController.swift */; };
+		079F6B8E1E74DA3200FF9D53 /* ImageFeedViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079F6B8D1E74DA3200FF9D53 /* ImageFeedViewCell.swift */; };
+		079F6B901E74DEA500FF9D53 /* ImageFeedTuple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079F6B8F1E74DEA500FF9D53 /* ImageFeedTuple.swift */; };
 		07E26ABA1E73435F007022D3 /* ThreadViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E26AB91E73435F007022D3 /* ThreadViewCell.swift */; };
 		417986C31E6631020050E1DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 417986C21E6631020050E1DF /* Assets.xcassets */; };
 		417986C51E6632C40050E1DF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417986C41E6632C40050E1DF /* TabBarController.swift */; };
@@ -25,6 +27,8 @@
 /* Begin PBXFileReference section */
 		072A19571E6A08A2002FB466 /* PostFeedsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostFeedsTableViewController.swift; sourceTree = "<group>"; };
 		072A195B1E6A0E59002FB466 /* ImageFeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageFeedTableViewController.swift; path = ../ImageFeedTableViewController.swift; sourceTree = "<group>"; };
+		079F6B8D1E74DA3200FF9D53 /* ImageFeedViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFeedViewCell.swift; sourceTree = "<group>"; };
+		079F6B8F1E74DEA500FF9D53 /* ImageFeedTuple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFeedTuple.swift; sourceTree = "<group>"; };
 		07E26AB91E73435F007022D3 /* ThreadViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadViewCell.swift; sourceTree = "<group>"; };
 		417986C21E6631020050E1DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		417986C41E6632C40050E1DF /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -64,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				4196F2DC1E650ECA009916E4 /* ImageFeed.swift */,
+				079F6B8F1E74DEA500FF9D53 /* ImageFeedTuple.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -71,6 +76,8 @@
 		417986CE1E6657650050E1DF /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				079F6B8D1E74DA3200FF9D53 /* ImageFeedViewCell.swift */,
+				07E26AB91E73435F007022D3 /* ThreadViewCell.swift */,
 				417986C81E664AE40050E1DF /* imageCollectionVieCell.swift */,
 			);
 			name = Cells;
@@ -79,6 +86,8 @@
 		417986CF1E6657910050E1DF /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				072A19571E6A08A2002FB466 /* PostFeedsTableViewController.swift */,
+				072A195B1E6A0E59002FB466 /* ImageFeedTableViewController.swift */,
 				417986C41E6632C40050E1DF /* TabBarController.swift */,
 				4196F2EC1E6609B0009916E4 /* PostNavigationController.swift */,
 				417986CE1E6657650050E1DF /* Cells */,
@@ -109,9 +118,6 @@
 				417986CD1E66571B0050E1DF /* Model */,
 				417986CC1E6656930050E1DF /* App Utilities */,
 				4196F2CE1E6509E8009916E4 /* Main.storyboard */,
-				07E26AB91E73435F007022D3 /* ThreadViewCell.swift */,
-				072A195B1E6A0E59002FB466 /* ImageFeedTableViewController.swift */,
-				072A19571E6A08A2002FB466 /* PostFeedsTableViewController.swift */,
 				417986CF1E6657910050E1DF /* View Controller */,
 				4196F2D31E6509E8009916E4 /* LaunchScreen.storyboard */,
 				417986C21E6631020050E1DF /* Assets.xcassets */,
@@ -192,6 +198,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				079F6B901E74DEA500FF9D53 /* ImageFeedTuple.swift in Sources */,
+				079F6B8E1E74DA3200FF9D53 /* ImageFeedViewCell.swift in Sources */,
 				417986CB1E664CB60050E1DF /* ImageFlowLayout.swift in Sources */,
 				4196F2E31E6514EE009916E4 /* ImagePickerController.swift in Sources */,
 				417986C51E6632C40050E1DF /* TabBarController.swift in Sources */,

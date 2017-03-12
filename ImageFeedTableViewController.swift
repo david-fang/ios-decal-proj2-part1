@@ -12,12 +12,7 @@ class ImageFeedTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,19 +23,44 @@ class ImageFeedTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return threadNames.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        
+        let threadName = threadNames[section]
+        
+        if let threadList = threads[threadName] {
+            return threadList.count
+        } else {
+            print("ERROR: Could not find key \(threadName) in threads")
+            return 0
+        }
     }
 
-    /*
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return threadNames[section]
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "imgFeedCell", for: indexPath) as! ImageFeedViewCell
+        let threadName = threadNames[indexPath.section]
+        let imageFeeds = threads[threadName]
+        
+        if let imageFeedInfo = imageFeeds?[indexPath.row] {
+            let minutesPassed = Int(imageFeedInfo.posttime.timeIntervalSinceNow / 60) % 60
+            
+            cell.posterName.text = imageFeedInfo.poster
+            cell.timeAgo.text = String.init(format: "%d minute(s) ago", minutesPassed)
+            cell.hasReadImage.image = #imageLiteral(resourceName: "unread")
+        }
+        
+        cell.preservesSuperviewLayoutMargins = false
+        cell.separatorInset = UIEdgeInsets.zero
+        cell.layoutMargins = UIEdgeInsets.zero
+        
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

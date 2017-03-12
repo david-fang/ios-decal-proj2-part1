@@ -13,7 +13,6 @@ class PostFeedsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
-        self.tableView.tableHeaderView = nil
     }
 
     override func didReceiveMemoryWarning() {
