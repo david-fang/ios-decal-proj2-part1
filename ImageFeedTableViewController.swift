@@ -72,8 +72,26 @@ class ImageFeedTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        // FIX ME
+        let threadName = threadNames[indexPath.section]
+        let imageFeeds = threads[threadName]
         
+        if let imageFeedInfo = imageFeeds?[indexPath.row] {
+            let cell = tableView.cellForRow(at: indexPath) as! ImageFeedViewCell
+
+            imageToDisplay = imageFeedInfo.image
+            cell.hasReadImage.image = #imageLiteral(resourceName: "read")
+            performSegue(withIdentifier: "viewImage", sender: self)
+        }
+    }
+    
+    @IBAction func unwindToFeeds(segue: UIStoryboardSegue) {}
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "viewImage" {
+            if let dest = segue.destination as? ImageDisplayViewController {
+                dest.displayedImage = self.imageToDisplay
+            }
+        }
     }
     
 }

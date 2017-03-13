@@ -88,10 +88,57 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Snapchat 2.0" id="zQO-oj-nI6"/>
+                    <connections>
+                        <segue destination="KJb-XC-qCF" kind="presentation" identifier="viewImage" modalPresentationStyle="fullScreen" id="mwr-wZ-Brh"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QgV-t0-oSB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-479.19999999999999" y="342.27886056971516"/>
+        </scene>
+        <!--Image Display View Controller-->
+        <scene sceneID="8EK-3C-Vnh">
+            <objects>
+                <viewController id="KJb-XC-qCF" customClass="ImageDisplayViewController" customModule="snapChatProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EK6-n1-REr"/>
+                        <viewControllerLayoutGuide type="bottom" id="qKc-NT-1Cb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WUL-dE-O9f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="anotherCutePuppy" translatesAutoresizingMaskIntoConstraints="NO" id="aws-Bo-bcD">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0fx-ZA-Inr">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <connections>
+                                    <action selector="closeImage:" destination="KJb-XC-qCF" eventType="touchUpInside" id="S2D-o0-ud2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qKc-NT-1Cb" firstAttribute="top" secondItem="0fx-ZA-Inr" secondAttribute="bottom" id="5yR-oZ-lHt"/>
+                            <constraint firstItem="0fx-ZA-Inr" firstAttribute="top" secondItem="WUL-dE-O9f" secondAttribute="top" id="C0b-5y-56P"/>
+                            <constraint firstItem="aws-Bo-bcD" firstAttribute="leading" secondItem="WUL-dE-O9f" secondAttribute="leading" id="FOM-LV-Hsf"/>
+                            <constraint firstAttribute="trailing" secondItem="aws-Bo-bcD" secondAttribute="trailing" id="SqL-AK-vJM"/>
+                            <constraint firstItem="0fx-ZA-Inr" firstAttribute="leading" secondItem="WUL-dE-O9f" secondAttribute="leading" id="VXG-43-3MV"/>
+                            <constraint firstItem="aws-Bo-bcD" firstAttribute="top" secondItem="WUL-dE-O9f" secondAttribute="top" id="gE7-DG-tFv"/>
+                            <constraint firstAttribute="trailing" secondItem="0fx-ZA-Inr" secondAttribute="trailing" id="mJV-2T-4xn"/>
+                            <constraint firstItem="qKc-NT-1Cb" firstAttribute="top" secondItem="aws-Bo-bcD" secondAttribute="bottom" id="rlR-NS-czP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="aws-Bo-bcD" id="oCd-zX-YCA"/>
+                        <segue destination="bDd-4c-3xK" kind="unwind" identifier="unwindToFeeds" unwindAction="unwindToFeedsWithSegue:" id="2eQ-3J-Qaz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e0Y-IS-s9Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="bDd-4c-3xK" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="344.80000000000001" y="343.17841079460271"/>
         </scene>
         <!--Post Navigation Controller-->
         <scene sceneID="HqC-gE-d4F">
@@ -325,6 +372,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="anotherCutePuppy" width="299" height="266"/>
         <image name="feed" width="32" height="32"/>
         <image name="goButton" width="132" height="130"/>
         <image name="post" width="32" height="32"/>
