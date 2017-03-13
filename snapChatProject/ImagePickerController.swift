@@ -18,8 +18,9 @@ class ImagePickerController: UIViewController, UICollectionViewDataSource, UICol
         didSet {
             if (postSuccessful)! {
                 successLabel.isHidden = false
+                let _ = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(self.hideSuccessIndicator), userInfo: nil, repeats: false);
             } else {
-                successLabel.isHidden = true
+                hideSuccessIndicator()
             }
         }
     }
@@ -36,14 +37,16 @@ class ImagePickerController: UIViewController, UICollectionViewDataSource, UICol
         super.didReceiveMemoryWarning()
     }
     
+    func hideSuccessIndicator() {
+        successLabel.isHidden = true
+    }
 
     func selectImage(_ image: UIImage) {
         //The image being selected is passed in as "image".
         self.selectedImage = image
         performSegue(withIdentifier: "ShowPostFeeds", sender: self)
     }
-    
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "ShowPostFeeds") {
             if let dest = segue.destination as? PostFeedsViewController {
@@ -53,13 +56,15 @@ class ImagePickerController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     @IBAction func unwindToImagePicker(segue: UIStoryboardSegue) {
-        
         if let source = segue.source as? PostFeedsViewController {
             self.postSuccessful = source.postSuccessful
         }
     }
     
-    //DON'T MODIFY CODE HERE AND BELOW!
+    
+
+
+    /** DON'T MODIFY CODE HERE AND BELOW! **/
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return allImages.count

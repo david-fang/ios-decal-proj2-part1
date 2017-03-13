@@ -24,7 +24,7 @@ class PostFeedsViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.dataSource = self
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         
-        // Do any additional setup after loading the view.
+        footerView.isHidden = true
     }
 
 
@@ -59,17 +59,26 @@ class PostFeedsViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let threadName = threadNames[indexPath.row]
         postingThreadName.text = threadName
-        selectedFeedList = threads[threadName]
+        footerView.isHidden = false
+        
+        if threads[threadName] != nil {
+            selectedFeedList = threads[threadName]
+        } else {
+            selectedFeedList = nil
+            print("nullified")
+        }
     }
     
     
     @IBAction func postToThread(_ sender: Any) {
         if let image = imageToPost {
-            let imageTup = ImageFeedTuple(poster: "David", posttime: NSDate(), image: image)
-            selectedFeedList?.append(imageTup)
-            postSuccessful = true
-        } else {
-            postSuccessful = false
+            if (selectedFeedList != nil) {
+                let imageTup = ImageFeedTuple(poster: "David", posttime: NSDate(), image: image)
+                selectedFeedList?.append(imageTup)
+                postSuccessful = true
+            } else {
+                postSuccessful = false
+            }
         }
         
         performSegue(withIdentifier: "unwindToImagePicker", sender: self)
