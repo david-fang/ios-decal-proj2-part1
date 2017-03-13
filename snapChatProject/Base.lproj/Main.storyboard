@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -161,12 +162,22 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="THw-Rp-qAe"/>
                                 </connections>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sucessfully posted!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezi-a0-b4O">
+                                <rect key="frame" x="0.0" y="597" width="375" height="21"/>
+                                <color key="backgroundColor" red="0.90594791669999997" green="0.86860054090000005" blue="0.17853580929999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wYC-QR-9eI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="67i-sQ-May"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="wYC-QR-9eI" secondAttribute="bottom" id="PMK-xc-7r2"/>
+                            <constraint firstAttribute="trailing" secondItem="ezi-a0-b4O" secondAttribute="trailing" id="Qw4-C5-rH1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wYC-QR-9eI" secondAttribute="trailing" constant="-16" id="TAL-Vb-8fq"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ezi-a0-b4O" secondAttribute="bottom" id="lSp-zJ-gds"/>
+                            <constraint firstItem="ezi-a0-b4O" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="otv-9b-hru"/>
                             <constraint firstItem="wYC-QR-9eI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="reJ-hc-ely"/>
                         </constraints>
                     </view>
@@ -175,12 +186,121 @@
                     </navigationItem>
                     <connections>
                         <outlet property="imageCollectionView" destination="wYC-QR-9eI" id="lwC-Kg-QfQ"/>
-                        <segue destination="z9e-rG-mTn" kind="show" identifier="ShowPostFeeds" id="CYm-FP-pau"/>
+                        <outlet property="successLabel" destination="ezi-a0-b4O" id="mGl-Bs-aUK"/>
+                        <segue destination="IV6-3W-kln" kind="show" identifier="ShowPostFeeds" id="EWR-4i-O7x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="344.80000000000001" y="-425.03748125937034"/>
+        </scene>
+        <!--Snapchat 2.0-->
+        <scene sceneID="Vvl-kq-XFU">
+            <objects>
+                <viewController id="IV6-3W-kln" customClass="PostFeedsViewController" customModule="snapChatProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rjG-ft-wge"/>
+                        <viewControllerLayoutGuide type="bottom" id="QYG-AX-9Jd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jDw-SE-cwt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="C2K-dZ-GLL">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pickFeedCell" id="D1X-ub-txN" customClass="ThreadViewCell" customModule="snapChatProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="D1X-ub-txN" id="rMa-zd-HQT">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thread Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8eg-yL-3Jg">
+                                                    <rect key="frame" x="100" y="17" width="175" height="35"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="8eg-yL-3Jg" firstAttribute="centerX" secondItem="rMa-zd-HQT" secondAttribute="centerX" id="EOZ-hK-vmH"/>
+                                                <constraint firstItem="8eg-yL-3Jg" firstAttribute="centerY" secondItem="rMa-zd-HQT" secondAttribute="centerY" id="dZQ-GY-3bU"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="threadName" destination="8eg-yL-3Jg" id="sTw-Qw-byf"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sEm-fT-eGv">
+                                <rect key="frame" x="0.0" y="551.5" width="375" height="66.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posting To:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kCP-on-sal">
+                                        <rect key="frame" x="8" y="23" width="86" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMM-JR-6pz">
+                                        <rect key="frame" x="307.5" y="8" width="59.5" height="51"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="KMM-JR-6pz" secondAttribute="height" multiplier="7:6" id="Wyz-4k-TMK"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="goButton"/>
+                                        <connections>
+                                            <action selector="postToThread:" destination="IV6-3W-kln" eventType="touchUpInside" id="xVm-Jk-4U1"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOE-AO-iYU">
+                                        <rect key="frame" x="102" y="33.5" width="0.0" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.25154358939153554" green="0.57909091016042191" blue="0.78892769610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="qOE-AO-iYU" firstAttribute="leading" secondItem="kCP-on-sal" secondAttribute="trailing" constant="8" id="69T-Gl-QeV"/>
+                                    <constraint firstAttribute="trailing" secondItem="KMM-JR-6pz" secondAttribute="trailing" constant="8" id="M7i-4S-CJf"/>
+                                    <constraint firstItem="KMM-JR-6pz" firstAttribute="top" secondItem="sEm-fT-eGv" secondAttribute="top" constant="8" id="YR5-mN-kWN"/>
+                                    <constraint firstItem="kCP-on-sal" firstAttribute="leading" secondItem="sEm-fT-eGv" secondAttribute="leading" constant="8" id="hGS-dp-xXV"/>
+                                    <constraint firstAttribute="bottom" secondItem="KMM-JR-6pz" secondAttribute="bottom" constant="8" id="io6-mv-bkU"/>
+                                    <constraint firstItem="qOE-AO-iYU" firstAttribute="centerY" secondItem="kCP-on-sal" secondAttribute="centerY" id="ivQ-SM-jNx"/>
+                                    <constraint firstItem="KMM-JR-6pz" firstAttribute="width" secondItem="KMM-JR-6pz" secondAttribute="height" multiplier="7:6" id="lbY-8C-pZY"/>
+                                    <constraint firstItem="kCP-on-sal" firstAttribute="centerY" secondItem="sEm-fT-eGv" secondAttribute="centerY" id="qKz-Aq-t0Z"/>
+                                    <constraint firstItem="KMM-JR-6pz" firstAttribute="centerY" secondItem="kCP-on-sal" secondAttribute="centerY" id="uIi-fy-GTm"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="C2K-dZ-GLL" firstAttribute="top" secondItem="jDw-SE-cwt" secondAttribute="top" id="M3k-B9-IW3"/>
+                            <constraint firstItem="sEm-fT-eGv" firstAttribute="leading" secondItem="jDw-SE-cwt" secondAttribute="leading" id="Mhu-qi-jji"/>
+                            <constraint firstItem="sEm-fT-eGv" firstAttribute="height" secondItem="jDw-SE-cwt" secondAttribute="height" multiplier="1/10" id="Q8F-Ap-980"/>
+                            <constraint firstAttribute="trailing" secondItem="C2K-dZ-GLL" secondAttribute="trailing" id="U1g-Ul-hci"/>
+                            <constraint firstItem="C2K-dZ-GLL" firstAttribute="leading" secondItem="jDw-SE-cwt" secondAttribute="leading" id="biA-y1-bkc"/>
+                            <constraint firstItem="QYG-AX-9Jd" firstAttribute="top" secondItem="sEm-fT-eGv" secondAttribute="bottom" id="eZ5-OU-ziA"/>
+                            <constraint firstAttribute="trailing" secondItem="sEm-fT-eGv" secondAttribute="trailing" id="fgu-ib-UF3"/>
+                            <constraint firstAttribute="bottom" secondItem="C2K-dZ-GLL" secondAttribute="bottom" id="v3o-NH-w3k"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Snapchat 2.0" id="nF6-6a-WlI">
+                        <barButtonItem key="backBarButtonItem" title=" " id="Yoz-Qo-GCT"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="footerView" destination="sEm-fT-eGv" id="ZgN-ak-9Vp"/>
+                        <outlet property="postingThreadName" destination="qOE-AO-iYU" id="5PO-bh-71U"/>
+                        <outlet property="tableView" destination="C2K-dZ-GLL" id="rJn-bz-VEw"/>
+                        <segue destination="PLl-6U-u07" kind="unwind" identifier="unwindToImagePicker" unwindAction="unwindToImagePickerWithSegue:" id="3kN-Gd-fvG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wf2-w6-Iz6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="PLl-6U-u07" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1133.5999999999999" y="-425.03748125937034"/>
         </scene>
         <!--Snapchat 2.0-->
         <scene sceneID="Fpk-Tb-lF5">
@@ -190,12 +310,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="oAh-lZ-guO" userLabel="footer">
+                            <rect key="frame" x="0.0" y="98" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pickFeedCell" id="YaQ-aV-ifu" customClass="ThreadViewCell" customModule="snapChatProject" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YaQ-aV-ifu" id="ImN-bI-3oc">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thread Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJP-vt-wMc">
@@ -211,9 +336,6 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <connections>
-                                    <outlet property="threadName" destination="wJP-vt-wMc" id="cCQ-Dj-pnl"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -222,10 +344,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Snapchat 2.0" id="c7k-Yh-nN4"/>
+                    <connections>
+                        <outlet property="footerView" destination="oAh-lZ-guO" id="2dJ-yE-dMF"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LHi-Et-HzU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1097" y="-425"/>
+            <point key="canvasLocation" x="1066" y="-1091"/>
         </scene>
         <!--Post Navigation Controller-->
         <scene sceneID="ITd-4u-wT8">
@@ -251,6 +376,7 @@
     </scenes>
     <resources>
         <image name="feed" width="32" height="32"/>
+        <image name="goButton" width="132" height="130"/>
         <image name="post" width="32" height="32"/>
     </resources>
 </document>

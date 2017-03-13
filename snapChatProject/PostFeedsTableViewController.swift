@@ -10,9 +10,14 @@ import UIKit
 
 class PostFeedsTableViewController: UITableViewController {
 
+    @IBOutlet weak var footerView: UIView!
+    
+    var selectedFeedList: [ImageFeedTuple]?
+    var isPosting = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+        refreshFooter()
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,41 +46,32 @@ class PostFeedsTableViewController: UITableViewController {
 
         return cell
     }
+
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let threadName = threadNames[indexPath.row]
+        selectedFeedList = threads[threadName]
+        
+        
+        
+        
+    }
     
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+//    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+//        return footerView
+//    }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 40
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    func refreshFooter() {
+        if (isPosting) {
+            self.tableView.tableFooterView = self.footerView
+        } else {
+            self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     /*
     // MARK: - Navigation

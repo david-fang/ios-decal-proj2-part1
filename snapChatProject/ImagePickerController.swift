@@ -1,5 +1,5 @@
 //
-//  imagePickerController.swift
+//  ImagePickerController.swift
 //  snapChatProject
 //
 //  Created by Akilesh Bapu on 2/27/17.
@@ -9,16 +9,27 @@
 import UIKit
 
 class ImagePickerController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-    
+
+    @IBOutlet weak var successLabel: UILabel!
     @IBOutlet var imageCollectionView: UICollectionView!
+
+    var selectedImage: UIImage?
+    var postSuccessful: Bool? {
+        didSet {
+            if (postSuccessful)! {
+                successLabel.isHidden = false
+            } else {
+                successLabel.isHidden = true
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.imageCollectionView.collectionViewLayout = ImageFlowLayout.init()
         self.imageCollectionView.backgroundColor = UIColor.lightGray
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
-        
-        
-
+        self.successLabel.isHidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,19 +39,25 @@ class ImagePickerController: UIViewController, UICollectionViewDataSource, UICol
 
     func selectImage(_ image: UIImage) {
         //The image being selected is passed in as "image".
+        self.selectedImage = image
         performSegue(withIdentifier: "ShowPostFeeds", sender: self)
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "ShowPostFeeds") {
-            if let dest = segue.destination as? PostFeedsTableViewController {
-                // FIX ME
+            if let dest = segue.destination as? PostFeedsViewController {
+                dest.imageToPost = self.selectedImage
             }
         }
     }
     
-    
+    @IBAction func unwindToImagePicker(segue: UIStoryboardSegue) {
+        
+        if let source = segue.source as? PostFeedsViewController {
+            self.postSuccessful = source.postSuccessful
+        }
+    }
     
     //DON'T MODIFY CODE HERE AND BELOW!
     
