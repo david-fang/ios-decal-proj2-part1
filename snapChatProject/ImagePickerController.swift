@@ -60,8 +60,6 @@ class ImagePickerController: UIViewController, UICollectionViewDataSource, UICol
             self.postSuccessful = source.postSuccessful
         }
     }
-    
-    
 
 
     /** DON'T MODIFY CODE HERE AND BELOW! **/

@@ -10,9 +10,15 @@ import UIKit
 
 class ImageFeedTableViewController: UITableViewController {
     
+    var imageToDisplay: UIImage?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,9 +44,11 @@ class ImageFeedTableViewController: UITableViewController {
         }
     }
 
+
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return threadNames[section]
     }
+
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "imgFeedCell", for: indexPath) as! ImageFeedViewCell
@@ -48,8 +56,7 @@ class ImageFeedTableViewController: UITableViewController {
         let imageFeeds = threads[threadName]
         
         if let imageFeedInfo = imageFeeds?[indexPath.row] {
-            let minutesPassed = Int(imageFeedInfo.posttime.timeIntervalSinceNow / 60) % 60
-            
+            let minutesPassed = Int(Date().timeIntervalSince(imageFeedInfo.posttime as Date) / 60) % 60
             cell.posterName.text = imageFeedInfo.poster
             cell.timeAgo.text = String.init(format: "%d minute(s) ago", minutesPassed)
             cell.hasReadImage.image = #imageLiteral(resourceName: "unread")
@@ -61,4 +68,12 @@ class ImageFeedTableViewController: UITableViewController {
         
         return cell
     }
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // FIX ME
+        
+    }
+    
 }

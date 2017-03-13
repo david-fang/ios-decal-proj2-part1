@@ -14,7 +14,7 @@ class PostFeedsViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var postingThreadName: UILabel!
     
-    var selectedFeedList: [ImageFeedTuple]?
+    var selectedFeedName: String?
     var imageToPost: UIImage?
     var postSuccessful: Bool?
 
@@ -62,22 +62,24 @@ class PostFeedsViewController: UIViewController, UITableViewDelegate, UITableVie
         footerView.isHidden = false
         
         if threads[threadName] != nil {
-            selectedFeedList = threads[threadName]
+            selectedFeedName = threadName
         } else {
-            selectedFeedList = nil
-            print("nullified")
+            selectedFeedName = ""
         }
     }
     
     
     @IBAction func postToThread(_ sender: Any) {
+        postSuccessful = false
+
         if let image = imageToPost {
-            if (selectedFeedList != nil) {
-                let imageTup = ImageFeedTuple(poster: "David", posttime: NSDate(), image: image)
-                selectedFeedList?.append(imageTup)
-                postSuccessful = true
-            } else {
-                postSuccessful = false
+            if let feed = selectedFeedName {
+                if (feed != "" && threads[feed] != nil) {
+                    let imageTup = ImageFeedTuple(poster: "David", posttime: NSDate(), image: image)
+                    threads[feed]!.append(imageTup)
+                    postSuccessful = true
+
+                }
             }
         }
         
