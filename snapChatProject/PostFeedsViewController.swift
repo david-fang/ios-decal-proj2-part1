@@ -75,10 +75,9 @@ class PostFeedsViewController: UIViewController, UITableViewDelegate, UITableVie
         if let image = imageToPost {
             if let feed = selectedFeedName {
                 if (feed != "" && threads[feed] != nil) {
-                    let imageTup = ImageFeedTuple(poster: "David", posttime: NSDate(), image: image)
+                    let imageTup = ImageFeedTuple(poster: username, posttime: NSDate(), image: image)
                     threads[feed]!.append(imageTup)
                     postSuccessful = true
-
                 }
             }
         }

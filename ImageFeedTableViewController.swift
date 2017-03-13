@@ -59,7 +59,12 @@ class ImageFeedTableViewController: UITableViewController {
             let minutesPassed = Int(Date().timeIntervalSince(imageFeedInfo.posttime as Date) / 60) % 60
             cell.posterName.text = imageFeedInfo.poster
             cell.timeAgo.text = String.init(format: "%d minute(s) ago", minutesPassed)
-            cell.hasReadImage.image = #imageLiteral(resourceName: "unread")
+            
+            if imageFeedInfo.hasBeenRead {
+                cell.hasReadImage.image = #imageLiteral(resourceName: "read")
+            } else {
+                cell.hasReadImage.image = #imageLiteral(resourceName: "unread")
+            }
         }
         
         cell.preservesSuperviewLayoutMargins = false
@@ -71,16 +76,18 @@ class ImageFeedTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let threadName = threadNames[indexPath.section]
         let imageFeeds = threads[threadName]
         
         if let imageFeedInfo = imageFeeds?[indexPath.row] {
-            let cell = tableView.cellForRow(at: indexPath) as! ImageFeedViewCell
+            if (!imageFeedInfo.hasBeenRead) {
+                let cell = tableView.cellForRow(at: indexPath) as! ImageFeedViewCell
 
-            imageToDisplay = imageFeedInfo.image
-            cell.hasReadImage.image = #imageLiteral(resourceName: "read")
-            performSegue(withIdentifier: "viewImage", sender: self)
+                imageToDisplay = imageFeedInfo.image
+                imageFeedInfo.setAsRead()
+                cell.isUserInteractionEnabled = false
+                performSegue(withIdentifier: "viewImage", sender: self)
+            }
         }
     }
     

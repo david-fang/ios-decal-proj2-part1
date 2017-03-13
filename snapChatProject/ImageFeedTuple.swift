@@ -14,11 +14,17 @@ class ImageFeedTuple {
     var poster: String
     var posttime: NSDate
     var image: UIImage
+    var hasBeenRead: Bool
     
     init(poster: String, posttime: NSDate, image: UIImage) {
         self.poster = poster
         self.posttime = posttime
         self.image = image
+        self.hasBeenRead = false
+    }
+    
+    func setAsRead() {
+        self.hasBeenRead = true
     }
     
 }
