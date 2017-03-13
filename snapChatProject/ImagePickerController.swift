@@ -17,8 +17,8 @@ class ImagePickerController: UIViewController, UICollectionViewDataSource, UICol
     var postSuccessful: Bool? {
         didSet {
             if (postSuccessful)! {
-                successLabel.isHidden = false
-                let _ = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(self.hideSuccessIndicator), userInfo: nil, repeats: false);
+                self.successLabel.alpha = 1.0
+                let _ = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.hideSuccessIndicator), userInfo: nil, repeats: false);
             } else {
                 hideSuccessIndicator()
             }
@@ -30,7 +30,7 @@ class ImagePickerController: UIViewController, UICollectionViewDataSource, UICol
         self.imageCollectionView.collectionViewLayout = ImageFlowLayout.init()
         self.imageCollectionView.backgroundColor = UIColor.lightGray
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
-        self.successLabel.isHidden = true
+        self.successLabel.alpha = 0.0
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,7 +38,9 @@ class ImagePickerController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     func hideSuccessIndicator() {
-        successLabel.isHidden = true
+        UIView.animate(withDuration: 1.5, animations: {
+            self.successLabel.alpha = 0.0
+        })
     }
 
     func selectImage(_ image: UIImage) {
