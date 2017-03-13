@@ -117,9 +117,9 @@
 			children = (
 				417986CD1E66571B0050E1DF /* Model */,
 				417986CC1E6656930050E1DF /* App Utilities */,
-				4196F2CE1E6509E8009916E4 /* Main.storyboard */,
 				417986CF1E6657910050E1DF /* View Controller */,
 				4196F2D31E6509E8009916E4 /* LaunchScreen.storyboard */,
+				4196F2CE1E6509E8009916E4 /* Main.storyboard */,
 				417986C21E6631020050E1DF /* Assets.xcassets */,
 				4196F2D61E6509E8009916E4 /* Info.plist */,
 			);

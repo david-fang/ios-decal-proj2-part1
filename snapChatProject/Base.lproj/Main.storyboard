@@ -302,56 +302,6 @@
             </objects>
             <point key="canvasLocation" x="1133.5999999999999" y="-425.03748125937034"/>
         </scene>
-        <!--Snapchat 2.0-->
-        <scene sceneID="Fpk-Tb-lF5">
-            <objects>
-                <tableViewController id="z9e-rG-mTn" customClass="PostFeedsTableViewController" customModule="snapChatProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" id="UiW-BB-LEn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="oAh-lZ-guO" userLabel="footer">
-                            <rect key="frame" x="0.0" y="98" width="375" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </view>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pickFeedCell" id="YaQ-aV-ifu" customClass="ThreadViewCell" customModule="snapChatProject" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="70"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YaQ-aV-ifu" id="ImN-bI-3oc">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thread Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJP-vt-wMc">
-                                            <rect key="frame" x="100" y="17" width="175" height="35"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="wJP-vt-wMc" firstAttribute="centerX" secondItem="ImN-bI-3oc" secondAttribute="centerX" id="mWG-Ce-dc9"/>
-                                        <constraint firstItem="wJP-vt-wMc" firstAttribute="centerY" secondItem="ImN-bI-3oc" secondAttribute="centerY" id="sWb-LI-pXl"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="z9e-rG-mTn" id="XgI-7h-fFw"/>
-                            <outlet property="delegate" destination="z9e-rG-mTn" id="DSr-1b-SKc"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Snapchat 2.0" id="c7k-Yh-nN4"/>
-                    <connections>
-                        <outlet property="footerView" destination="oAh-lZ-guO" id="2dJ-yE-dMF"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LHi-Et-HzU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1066" y="-1091"/>
-        </scene>
         <!--Post Navigation Controller-->
         <scene sceneID="ITd-4u-wT8">
             <objects>
