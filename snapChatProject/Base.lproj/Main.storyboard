@@ -108,7 +108,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="anotherCutePuppy" translatesAutoresizingMaskIntoConstraints="NO" id="aws-Bo-bcD">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aws-Bo-bcD">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0fx-ZA-Inr">
@@ -375,7 +375,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="anotherCutePuppy" width="299" height="266"/>
         <image name="feed" width="32" height="32"/>
         <image name="goButton" width="132" height="130"/>
         <image name="post" width="32" height="32"/>
